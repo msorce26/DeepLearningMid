@@ -19,7 +19,7 @@ import pandas
 
 # Netwrok depth
 # Please explore depths of [20, 32, 44, 56]
-depth = 32
+depth = 20
 
 # Training parameters
 batch_size = 128  
