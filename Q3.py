@@ -26,7 +26,7 @@ y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
 
 # Create imput
-input_img = Input(shape = (32, 32, 3))
+input_layer = Input(shape = (32, 32, 3))
 
 
 def inception_module(x,
