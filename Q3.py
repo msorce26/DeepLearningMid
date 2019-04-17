@@ -10,6 +10,7 @@ from keras.layers import Flatten, Dense
 from keras.layers import Input
 from keras.utils import np_utils
 from keras.datasets import cifar10
+from keras.regularizers import l2
 
 epochs = 40
 
