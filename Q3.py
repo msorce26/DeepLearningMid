@@ -70,7 +70,7 @@ x = inception_module(x,
                      filters_5x5_reduce=16,
                      filters_5x5=32,
                      filters_pool_proj=32,
-                     name='inception_3a')
+                     name="inception_3a")
 
 x = inception_module(x,
                      filters_1x1=128,
