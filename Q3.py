@@ -111,20 +111,20 @@ inception_module4 = keras.layers.concatenate([volume_17, volume_18, volume_19,
                                              volume_20], axis = 3)
 
 # Create Volumes for the Inception module
-volume_21 = Conv2D(256, (1,1), padding='same', activation='relu')(inception_module4)
+#volume_21 = Conv2D(256, (1,1), padding='same', activation='relu')(inception_module4)
 
-volume_22 = Conv2D(160, (1,1), padding='same', activation='relu')(inception_module4)
-volume_22 = Conv2D(320, (3,3), padding='same', activation='relu')(volume_10)
+#volume_22 = Conv2D(160, (1,1), padding='same', activation='relu')(inception_module4)
+#volume_22 = Conv2D(320, (3,3), padding='same', activation='relu')(volume_10)
 
-volume_23 = Conv2D(32, (1,1), padding='same', activation='relu')(inception_module4)
-volume_23 = Conv2D(128, (5,5), padding='same', activation='relu')(volume_11)
+#volume_23 = Conv2D(32, (1,1), padding='same', activation='relu')(inception_module4)
+#volume_23 = Conv2D(128, (5,5), padding='same', activation='relu')(volume_11)
 
-volume_24 = MaxPooling2D((3,3), strides=(1,1), padding='same')(inception_module4)
-volume_24 = Conv2D(128, (1,1), padding='same', activation='relu')(volume_12)
+#volume_24 = MaxPooling2D((3,3), strides=(1,1), padding='same')(inception_module4)
+#volume_24 = Conv2D(128, (1,1), padding='same', activation='relu')(volume_12)
 
 # Concatenate all volumes of the Inception module
-inception_module5 = keras.layers.concatenate([volume_21, volume_22, volume_23,
-                                             volume_24], axis = 3)
+#inception_module5 = keras.layers.concatenate([volume_21, volume_22, volume_23,
+                                            # volume_24], axis = 3)
 
 # Create Volumes for the Inception module
 #volume_25 = Conv2D(256, (1,1), padding='same', activation='relu')(inception_module5)
@@ -158,7 +158,7 @@ inception_module5 = keras.layers.concatenate([volume_21, volume_22, volume_23,
 #inception_module7 = keras.layers.concatenate([volume_29, volume_30, volume_31,
                                              #volume_32], axis = 3)
 
-x = Dropout(0.4)(inception_module5)
+x = Dropout(0.4)(inception_module4)
 output = Flatten()(x)
 out    = Dense(10, activation='softmax')(output)
 
