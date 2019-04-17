@@ -171,7 +171,7 @@ print(model.summary())
 model = multi_gpu_model(model, gpus=4)
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-hist = model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=epochs, batch_size=512)
+hist = model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=epochs, batch_size=2048)
 
 
 scores = model.evaluate(X_test, y_test, verbose=0)
