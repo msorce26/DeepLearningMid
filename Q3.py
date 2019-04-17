@@ -11,6 +11,8 @@ from keras.layers import Input
 from keras.utils import np_utils
 from keras.datasets import cifar10
 
+from keras.utils import multi_gpu_model
+
 epochs = 100
 
 # Get the data
