@@ -31,22 +31,22 @@ input_img = Input(shape = (32, 32, 3))
 
 
 # Create Volumes for the Inception module
-volume_1 = Conv2D(64, (1,1), padding='same', activation='relu', kernel_regularizer=l2(0.01), bias_regularizer=l2(0.01))(input_img)
+volume_1 = Conv2D(64, (1,1), padding='same', activation='relu', kernel_regularizer=l2(0.05), bias_regularizer=l2(0.05))(input_img)
 
-volume_2 = Conv2D(96, (1,1), padding='same', activation='relu')(input_img)
-volume_2 = Conv2D(128, (3,3), padding='same', activation='relu', kernel_regularizer=l2(0.01), bias_regularizer=l2(0.01))(volume_2)
+volume_2 = Conv2D(96, (1,1), padding='same', activation='relu', kernel_regularizer=l2(0.01), bias_regularizer=l2(0.01))(input_img)
+volume_2 = Conv2D(128, (3,3), padding='same', activation='relu', kernel_regularizer=l2(0.05), bias_regularizer=l2(0.05))(volume_2)
 
-volume_3 = Conv2D(16, (1,1), padding='same', activation='relu')(input_img)
-volume_3 = Conv2D(32, (5,5), padding='same', activation='relu', kernel_regularizer=l2(0.01), bias_regularizer=l2(0.01))(volume_3)
+volume_3 = Conv2D(16, (1,1), padding='same', activation='relu', kernel_regularizer=l2(0.01), bias_regularizer=l2(0.01))(input_img)
+volume_3 = Conv2D(32, (5,5), padding='same', activation='relu', kernel_regularizer=l2(0.05), bias_regularizer=l2(0.05))(volume_3)
 
-volume_4 = MaxPooling2D((3,3), strides=(1,1), padding='same')(input_img)
-volume_4 = Conv2D(32, (1,1), padding='same', activation='relu', kernel_regularizer=l2(0.01), bias_regularizer=l2(0.01))(volume_4)
+volume_4 = MaxPooling2D((3,3), strides=(1,1), padding='same', kernel_regularizer=l2(0.01), bias_regularizer=l2(0.01))(input_img)
+volume_4 = Conv2D(32, (1,1), padding='same', activation='relu', kernel_regularizer=l2(0.05), bias_regularizer=l2(0.05))(volume_4)
 
 # Concatenate all volumes of the Inception module
 inception_module = keras.layers.concatenate([volume_1, volume_2, volume_3,
                                              volume_4], axis = 3)
 output = Flatten()(inception_module)
-out    = Dense(10, activation='softmax', bias_regularizer=l2(0.01))(output)
+out    = Dense(10, activation='softmax', bias_regularizer=l2(0.05))(output)
 
 
 model = Model(inputs = input_img, outputs = out)
