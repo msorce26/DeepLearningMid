@@ -47,7 +47,14 @@ inception_module1 = keras.layers.concatenate([volume_1, volume_2, volume_3,
 
 inception_module2 = keras.layers.concatenate([volume_1, volume_2, volume_3,
                                              volume_4], axis = 3)
-inception_module = keras.layers.concatenate([inception_module1, inception_module2], axis = 3)
+
+inception_module3 = keras.layers.concatenate([volume_1, volume_2, volume_3,
+                                             volume_4], axis = 3)
+
+inception_module4 = keras.layers.concatenate([volume_1, volume_2, volume_3,
+                                             volume_4], axis = 3)
+
+inception_module = keras.layers.concatenate([inception_module1, inception_module2, inception_module3, inception_module4], axis = 3)
 
 output = Flatten()(inception_module)
 out    = Dense(10, activation='softmax')(output)
