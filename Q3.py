@@ -139,11 +139,27 @@ volume_28 = MaxPooling2D((3,3), strides=(1,1), padding='same')(inception_module5
 volume_28 = Conv2D(128, (1,1), padding='same', activation='relu')(volume_28)
 
 # Concatenate all volumes of the Inception module
-inception_module6 = keras.layers.concatenate([volume_9, volume_10, volume_11,
-                                             volume_12], axis = 3)
+inception_module6 = keras.layers.concatenate([volume_25, volume_26, volume_27,
+                                             volume_28], axis = 3)
+
+# Create Volumes for the Inception module
+volume_29 = Conv2D(256, (1,1), padding='same', activation='relu')(inception_module6)
+
+volume_30 = Conv2D(160, (1,1), padding='same', activation='relu')(inception_module6)
+volume_30 = Conv2D(320, (3,3), padding='same', activation='relu')(volume_30)
+
+volume_31 = Conv2D(32, (1,1), padding='same', activation='relu')(inception_module6)
+volume_31 = Conv2D(128, (5,5), padding='same', activation='relu')(volume_31)
+
+volume_32 = MaxPooling2D((3,3), strides=(1,1), padding='same')(inception_module6)
+volume_32 = Conv2D(128, (1,1), padding='same', activation='relu')(volume_32)
+
+# Concatenate all volumes of the Inception module
+inception_module7 = keras.layers.concatenate([volume_29, volume_30, volume_31,
+                                             volume_32], axis = 3)
 
 
-output = Flatten()(inception_module6)
+output = Flatten()(inception_module7)
 out    = Dense(10, activation='softmax')(output)
 
 
