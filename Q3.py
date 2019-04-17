@@ -52,10 +52,10 @@ volume_5 = Conv2D(64, (1,1), padding='same', activation='relu')(inception_module
 volume_6 = Conv2D(96, (1,1), padding='same', activation='relu')(inception_module)
 volume_6 = Conv2D(128, (3,3), padding='same', activation='relu')(volume_6)
 
-volume_7 = Conv2D(16, (1,1), padding='same', activation='relu')(input_img)
+volume_7 = Conv2D(16, (1,1), padding='same', activation='relu')(inception_module)
 volume_7 = Conv2D(32, (5,5), padding='same', activation='relu')(volume_7)
 
-volume_8 = MaxPooling2D((3,3), strides=(1,1), padding='same')(input_img)
+volume_8 = MaxPooling2D((3,3), strides=(1,1), padding='same')(inception_module)
 volume_8 = Conv2D(32, (1,1), padding='same', activation='relu')(volume_8)
 
 # Concatenate all volumes of the Inception module
@@ -68,10 +68,10 @@ volume_9 = Conv2D(64, (1,1), padding='same', activation='relu')(inception_module
 volume_10 = Conv2D(96, (1,1), padding='same', activation='relu')(inception_module1)
 volume_10 = Conv2D(128, (3,3), padding='same', activation='relu')(volume_10)
 
-volume_11 = Conv2D(16, (1,1), padding='same', activation='relu')(input_img)
+volume_11 = Conv2D(16, (1,1), padding='same', activation='relu')(inception_module1)
 volume_11 = Conv2D(32, (5,5), padding='same', activation='relu')(volume_11)
 
-volume_12 = MaxPooling2D((3,3), strides=(1,1), padding='same')(input_img)
+volume_12 = MaxPooling2D((3,3), strides=(1,1), padding='same')(inception_module1)
 volume_12 = Conv2D(32, (1,1), padding='same', activation='relu')(volume_12)
 
 # Concatenate all volumes of the Inception module
