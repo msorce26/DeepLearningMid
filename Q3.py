@@ -11,7 +11,7 @@ from keras.layers import Input
 from keras.utils import np_utils
 from keras.datasets import cifar10
 
-epochs = 20
+epochs = 40
 
 # Get the data
 (X_train, y_train), (X_test, y_test) = cifar10.load_data()
@@ -45,7 +45,7 @@ volume_4 = Conv2D(32, (1,1), padding='same', activation='relu')(volume_4)
 inception_module = keras.layers.concatenate([volume_1, volume_2, volume_3,
                                              volume_4], axis = 3)
 output = Flatten()(inception_module)
-out    = Dense(10, activation='softmax')(output)
+out    = Dense(10, activation='softmax', bias_regularizer=l2(0.01))(output)
 
 
 model = Model(inputs = input_img, outputs = out)
