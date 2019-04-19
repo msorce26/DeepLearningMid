@@ -68,7 +68,7 @@ print(model.summary())
 
 # Model Compiling and Fiting
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-model.fit(X, y, epochs=1, verbose=1)
+model.fit(X, y, epochs=100, verbose=1)
 
 
 # save the model and mapping to file
