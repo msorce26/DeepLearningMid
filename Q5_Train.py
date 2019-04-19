@@ -12,10 +12,6 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.layers import LSTM
 
-#from keras.utils import multi_gpu_model
-
-
-
 # Load and clean a text file
 def fClean_Load(filename):
     file = open(filename, 'r')
@@ -62,15 +58,12 @@ y = to_categorical(y, num_classes=vocab_size)
 ##############################################################################
 
 model = Sequential()
-model.add(LSTM(800  ,input_shape=(X.shape[1], X.shape[2])))
-model.add(Dropout(0.5))
+model.add(LSTM(256  ,input_shape=(X.shape[1], X.shape[2])))
+model.add(Dropout(0.2))
 model.add(Dense(vocab_size, activation='softmax'))
-
-#model = multi_gpu_model(model, gpus=4)
-
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 print(model.summary())
-model.fit(X, y, epochs=50 , verbose=1, batch_size=3000)
+model.fit(X, y, epochs=10 , verbose=1, batch_size=64 )
 
 # Save and test using code from the Q4_Test
 model.save('LargeLSTM_model.h5')
