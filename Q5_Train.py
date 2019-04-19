@@ -70,7 +70,7 @@ model.add(Dense(vocab_size, activation='softmax'))
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 print(model.summary())
-model.fit(X, y, epochs=50 , verbose=1, batch_size=3500)
+model.fit(X, y, epochs=50 , verbose=1, batch_size=3300)
 
 # Save and test using code from the Q4_Test
 model.save('LargeLSTM_model.h5')
