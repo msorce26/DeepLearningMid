@@ -62,7 +62,7 @@ y = to_categorical(y, num_classes=vocab_size)
 ##############################################################################
 
 model = Sequential()
-model.add(LSTM(512  ,input_shape=(X.shape[1], X.shape[2])))
+model.add(LSTM(1024  ,input_shape=(X.shape[1], X.shape[2])))
 model.add(Dropout(0.5))
 model.add(Dense(vocab_size, activation='softmax'))
 
