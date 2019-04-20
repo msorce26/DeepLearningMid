@@ -9,7 +9,7 @@ from keras.models import load_model
 from keras.utils import to_categorical
 from keras.preprocessing.sequence import pad_sequences
 
-seed_text = 'in good time to touch his three-cornered hat to the oldest of men as they passed in to'
+seed_text = 'in good time to touch his three cornered hat to the oldest of men as they passed in to'
 n_chars_to_predict = 500
 seq_length = 100
 
