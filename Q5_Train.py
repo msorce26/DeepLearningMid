@@ -46,10 +46,9 @@ vocab_size = len(mapping)
 print('Vocabulary Size: %d' % vocab_size)
 
 sequences = np.array(sequences)
-X, y = sequences[:,:-1], sequences[:,-1]
-
-X = X / float(vocab_size)
-X = np.reshape(X, (X.shape[0], length, 1))
+X1, y = sequences[:,:-1], sequences[:,-1]
+temp = [to_categorical(x, num_classes=vocab_size) for x in X1]
+X = np.array(temp)
 y = to_categorical(y, num_classes=vocab_size)
 
 ##############################################################################
