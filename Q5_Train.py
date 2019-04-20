@@ -49,7 +49,7 @@ sequences = np.array(sequences)
 X, y = sequences[:,:-1], sequences[:,-1]
 
 X = X / float(vocab_size)
-X = np.reshape(X, (X.shape[0], length, 28))
+X = np.reshape(X, (X.shape[0], length, 1))
 y = to_categorical(y, num_classes=vocab_size)
 
 ##############################################################################
