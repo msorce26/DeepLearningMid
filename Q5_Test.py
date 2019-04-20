@@ -8,6 +8,7 @@ from pickle import load
 from keras.models import load_model
 from keras.utils import to_categorical
 from keras.preprocessing.sequence import pad_sequences
+import numpy as np
 
 seed_text = 'in good time to touch his three cornered hat to the oldest of men as they passed in to'
 n_chars_to_predict = 500
@@ -26,6 +27,7 @@ for k in range(n_chars_to_predict):
     encoded = pad_sequences([encoded], maxlen=seq_length, truncating='pre')
     # one hot encode
     encoded = encoded / float(len(mapping))
+    encoded = np.reshape(encoded, (encoded.shape[0], length, 1))
     #encoded = to_categorical(encoded, num_classes=len(mapping))
     # predict character
     yhat = model.predict_classes(encoded, verbose=0)
