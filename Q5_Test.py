@@ -27,7 +27,7 @@ for k in range(n_chars_to_predict):
     # one hot encode
     encoded = to_categorical(encoded, num_classes=len(mapping))
     # predict character
-    yhat = model.predict_classes(encoded, verbose=28)
+    yhat = model.predict_classes(encoded, verbose=0)
     
     # reverse map integer to character
     for char, index in mapping.items():
