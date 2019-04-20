@@ -9,7 +9,7 @@ from keras.models import load_model
 from keras.utils import to_categorical
 from keras.preprocessing.sequence import pad_sequences
 
-seed_text = 'all these things and a thousand like them came to pass in and close upon the dear old year one thousand'
+seed_text = 'in good time to touch his three-cornered hat to the oldest of men as they passed in to'
 n_chars_to_predict = 500
 seq_length = 100
 
@@ -27,7 +27,7 @@ for k in range(n_chars_to_predict):
     # one hot encode
     encoded = to_categorical(encoded, num_classes=len(mapping))
     # predict character
-    yhat = model.predict_classes(encoded, verbose=0)
+    yhat = model.predict_classes(encoded, verbose=28)
     
     # reverse map integer to character
     for char, index in mapping.items():
